@@ -1,0 +1,16 @@
+---
+name: scrapy test container
+author: Danilo Jesic
+version: 1
+
+services:
+  gcb-scrapy-tests:
+    image: gcb_scrapy_tests
+
+flow:
+  - name: scrapy test
+    container: gcb-scrapy-tests
+    commands:
+      - type: console
+        command: tox
+        note: Starting the scrapy tests
