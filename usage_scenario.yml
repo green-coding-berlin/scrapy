@@ -8,14 +8,14 @@ services:
     image: python:3.11-slim
     cmd: bash
     setup-commands:
-      - cd /tmp/repo/tests/
+      - python -m pip install -r /tmp/repo/tests/requirements.txt
       - apt update && apt install -y tox
-      - python -m pip install -r requirements.txt
+      - cp -R /tmp/repo/ ~/scrapy
 
 flow:
   - name: Run Scrapy tests with tox
     container: scrapy-tests
     commands:
       - type: console
-        command: tox
+        command: tox -c ~/scrapy/tox.ini
         note: Starting the scrapy tests
