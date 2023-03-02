@@ -37,6 +37,9 @@ Scrapy
    :target: https://anaconda.org/conda-forge/scrapy
    :alt: Conda Version
 
+.. image:: https://api.green-coding.berlin/v1/badge/single/71598d20-c846-4d98-8fb5-5b984636450a?metric=RAPL
+   :target: https://metrics.green-coding.berlin/stats.html?id=71598d20-c846-4d98-8fb5-5b984636450a
+   :alt: Tests energy cost
 
 Overview
 ========
