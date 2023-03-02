@@ -1,0 +1,6 @@
+version: '2'
+services:
+  gcb-scrapy-tests:
+    image: gcb_scrapy_tests
+    container_name: gcb-scrapy-tests
+    build: .
