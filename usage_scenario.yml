@@ -1,16 +1,21 @@
 ---
-name: scrapy test container
-author: Danilo Jesic
+name: Scrapy test container
+author: Danilo Ješić
 version: 1
 
 services:
-  gcb-scrapy-tests:
-    image: gcb_scrapy_tests
+  scrapy-tests:
+    image: python:3.11-slim
+    cmd: bash
+    setup-commands:
+      - python -m pip install -r /tmp/repo/tests/requirements.txt
+      - apt update && apt install -y tox
+      - cp -R /tmp/repo/ ~/scrapy
 
 flow:
-  - name: scrapy test
-    container: gcb-scrapy-tests
+  - name: Run Scrapy tests with tox
+    container: scrapy-tests
     commands:
       - type: console
-        command: tox
+        command: tox -c ~/scrapy/tox.ini
         note: Starting the scrapy tests
